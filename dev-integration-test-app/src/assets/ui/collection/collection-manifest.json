@@ -1,0 +1,52 @@
+{
+  "components": [
+    {
+      "tag": "cwc-textarea",
+      "dependencies": [],
+      "componentClass": "CwcTextarea",
+      "componentPath": "components/cwc-textarea/cwc-textarea.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/cwc-textarea/cwc-textarea.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "id",
+          "type": "String",
+          "attr": "id"
+        },
+        {
+          "name": "label",
+          "type": "String",
+          "attr": "label"
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "attr": "value"
+        }
+      ],
+      "events": [
+        {
+          "event": "onvaluechange"
+        }
+      ]
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.11.4",
+    "typescriptVersion": "2.9.2"
+  },
+  "bundles": [
+    {
+      "components": [
+        "cwc-textarea"
+      ]
+    }
+  ]
+}

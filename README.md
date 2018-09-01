@@ -74,3 +74,40 @@ export const config: Config = {
 
 ### 5. Verify
 Now you can launch two projects simultaneously and confirm angular app livereload every stencil compile cycle.
+
+
+### 6. Handling changes in components which are not published to npm
+Lets look at this case on `CwcTextarea` component example.
+You can simply export distribution of the component to angular project's `src/assets` folder: 
+`livingui/cwc-textarea/stencil.config.ts`:
+```typescript
+import { Config } from "@stencil/core";
+import { sass } from "@stencil/sass";
+
+export const config: Config = {
+  namespace: "livingui-textarea",
+  enableCache: false,
+  bundles: [{ components: ["cwc-textarea"] }],
+  outputTargets: [
+    { type: "www" },
+    { type: "dist" },
+   {
+      type: "dist",
+      dir: "../../dev-integration-test-app/src/assets/ui/"
+    }
+  ],
+  copy: [],
+  plugins: [sass()]
+};
+
+```
+
+After this, you must include this copied script into `src/index.html` 
+
+```html
+
+  <script src="assets/ui/livingui-textarea.js"></script>
+
+```
+
+Now, your development environment is set up already, you can make any changes in CwcTextarea component and verify live reloading in the angular project.
